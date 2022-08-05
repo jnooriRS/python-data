@@ -1,3 +1,1 @@
-import Cat
-
-Cat.meow()
+import catclass
