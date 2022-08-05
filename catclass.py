@@ -18,6 +18,20 @@ class BadCat(Cat):
 
     def meow(self):
         print("hiss")
+    
+class VeryBadCat(Cat):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def meow(self):
+        try:
+            if super().meow():
+                return True
+            raise Exception
+        except Exception('My exception') as e:
+            print(e)
+        finally:
+            print("Stop")
 
 
 
