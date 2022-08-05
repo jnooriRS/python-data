@@ -1,0 +1,3 @@
+import Cat
+
+Cat.meow()
