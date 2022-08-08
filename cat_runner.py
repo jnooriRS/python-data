@@ -13,4 +13,5 @@ Cat = VeryBadCat('Jonas')
 print(Cat.name)
 Cat.meow()
 
-Cat.meow()
+#print(help(VeryBadCat))
+#show what has been inheretied from the parent class
