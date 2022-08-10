@@ -21,26 +21,13 @@ class BadCat(Cat):
         return True
     
 class VeryBadCat(Cat):
-    def __init__(self, name):
-        super().__init__(name)
+    def meow(self):
+        raise MyException("Nope, scratch scratch") 
 
 class MyException(Exception):
     def __init__(self, message):
         self.message = message
-
-    def meow(self):
-        e=MyException("Nope, scratch scratch")
-        try:
-            if super().meow():
-                raise MyException("Invalid")
-        except MyException as e:
-            print(e.message)
-        finally:
-            print("Program Stop")
-
-
-
-
+        
 cat_1=Cat('Oreo')
 print(cat_1.name)
 cat_1.meow()
