@@ -46,3 +46,6 @@ if __name__ == "__main__":
     p2.join()
     en = time.time()
     print("time taken = ", en-st)
+
+#GITHUB for NERDZ multi programs
+#https://github.com/Suji04/NormalizedNerd/blob/master/Python%20Tutorials/Multiprocessing/multi.py
