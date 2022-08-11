@@ -18,7 +18,6 @@ class BadCat(Cat):
 
     def meow(self):
         print("hiss")
-        return True
     
 class VeryBadCat(Cat):
     def meow(self):
@@ -27,7 +26,7 @@ class VeryBadCat(Cat):
 class MyException(Exception):
     def __init__(self, message):
         self.message = message
-        
-cat_1=Cat('Oreo')
-print(cat_1.name)
-cat_1.meow()
+
+#cat_1=Cat('Oreo')
+#print(cat_1.name)
+#cat_1.meow()
