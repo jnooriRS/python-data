@@ -5,18 +5,24 @@
 #iterable has a fib calucation
 #result is saved as file name
 #file pushed to folder
+#IMPORT ALL MODULES INTO PROGRAMS WHEN FINISHED TO REFACTOR
 
 import multiprocessing
 import  time
+import os
 
 def fibGenerator(num):
-     fibFolder = []
-    for _ in range(num):
-        #create file
-        # fib calculation on itreable
-        #assign iterable to file name
-        #push file to folder
-    print("counter1 done!")
+        path="C:\\Users\\HansPeterJonasHogh-J\\dev\\docs\\pyhtonexercise\\async_multi"
+        os.chdir(path)
+        fibFolder= 'fibFolder-01'
+        os.makedirs(fibFolder)
+
+for X in range(num):
+    # fib calculation on itreable
+    #Y = result
+    open(f"{X}.txt", "a")
+    #push file to folder
+    print("1000 fib files done!")
 
 def counter2(num):
     cnt = 0
@@ -29,14 +35,14 @@ if __name__ == "__main__":
 
     # singleprocessing
     st = time.time()
-    fibfile(N)
+    fibGenerator(N)
     counter2(N)
     en = time.time()
     print("time taken = ", en-st)
 
     # multiprocessing
     st = time.time()
-    p1 = multiprocessing.Process(target=counter1, args=(N, ))
+    p1 = multiprocessing.Process(target=fibGenerator, args=(N, ))
     p2 = multiprocessing.Process(target=counter2, args=(N, ))
 
     p1.start()
