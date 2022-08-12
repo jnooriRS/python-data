@@ -7,3 +7,11 @@ def fibwritefile(N):
             file.close()
 
 fibwritefile(10)
+
+
+
+def fibwritefile(fibarray):
+    for X in (fibarray):
+        with open(f"fib-number-{X.index}.txt", "w") as file:
+            file.write(str(fibarray[X]))
+            file.close()
