@@ -1,6 +1,6 @@
+fibarray=[]
 def fibArray(N):
     for X in range(N):
-        fibarray=[]
         num1 = 0
         num2 = 1
         find = 2
@@ -15,4 +15,4 @@ def fibArray(N):
             continue
     print(fibarray)
 
-fibArray(7) 
+fibArray(7)
