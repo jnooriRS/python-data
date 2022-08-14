@@ -1,8 +1,8 @@
 def fibArray(N):
-    fibarray=[] 
+    fibarray=[1,] 
     num1 = 0
     num2 = 1
-    find = 2
+    find = 1
     fibnum=0
     while find < N:
             fibnum = (num1+num2)
@@ -13,9 +13,9 @@ def fibArray(N):
     return(fibarray)
 
 def fibwritefile(fibarray):
-    for X in range(len(fibarray)):
-        with open(f"fib-number-{fibarray[X]}.txt", "w") as file:
-            file.write(str(fibarray[X]))
+    for X in range(1, len(fibarray) +1):
+        with open(f"fib-number-{X}.txt", "w") as file:
+            file.write(str(fibarray[:X]))
             file.close()
 
 fibarray=fibArray(7)
