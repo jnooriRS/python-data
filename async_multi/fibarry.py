@@ -1,10 +1,10 @@
-def fibArray(N):
+def fibArray(i):
     fibarray=[1,] 
     num1 = 0
     num2 = 1
     find = 1
     fibnum=0
-    while find < N:
+    while find < i:
             fibnum = (num1+num2)
             num1 = num2
             num2 = fibnum

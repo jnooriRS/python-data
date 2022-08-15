@@ -1,54 +1,53 @@
-#import fibfunction
-#create a folder
-#single loop
-#each iterable creates file
-#iterable has a fib calucation
-#result is saved as file name
-#file pushed to folder
 #IMPORT ALL MODULES INTO PROGRAMS WHEN FINISHED TO REFACTOR
-
-from ast import Num
 import multiprocessing, time, os
-from fibarry import fibArray, fibwritefile
-
-def fibGenerator():
+def create_folder():
         path="C:\\Users\\HansPeterJonasHogh-J\\dev\\docs\\pyhtonexercise\\async_multi"
         os.chdir(path)
-        fibFolder= 'fibFolder-01'
-        os.makedirs(fibFolder)
+        fib_folder= 'fibFolder-01'
+        os.makedirs(fib_folder)
 
-fibarray=fibArray(N)
-fibwritefile(fibarray)
+def generate_array(fib_position):
+    fibarray=[1,] 
+    num1 = 0
+    num2 = 1
+    current_index = 1
+    fibnum=0
+    while current_index < fib_position:
+            fibnum = (num1+num2)
+            num1 = num2
+            num2 = fibnum
+            current_index = (current_index+1)
+            fibarray.append(int(fibnum))
+    return(fibarray)
 
+def write_file(fibarray):
+    for X in range(1, len(fibarray) +1):
+        with open(f"fib-number-{X}.txt", "w") as file:
+            file.write(str(fibarray[:X]))
+            file.close()
 
-def counter2(num):
-    cnt = 0
-    for _ in range(0, num, 2):
-        cnt += 1
-    print("counter2 done!")
+if __name__== "__main__":
+    fib_position = 7
 
-if __name__ == "__main__":
-    N = 10000
+# multiprocessing
+st = time.time()
+#integer will not parse and be iterable without comma as it will be a tuple
+#parse through integer
+#p1 = multiprocessing.Process(target=fibGenerator)
+p2 = multiprocessing.Process(target=generate_array, args=(fib_position, ))
 
-    # singleprocessing
-    st = time.time()
-    fibGenerator(N)
-    counter2(N)
-    en = time.time()
-    print("time taken = ", en-st)
+#p1.start()
+create_folder()
+fibarray=generate_array(fib_position)
+write_file(fibarray)
+p2.start()
 
-    # multiprocessing
-    st = time.time()
-    p1 = multiprocessing.Process(target=fibGenerator, args=(N, ))
-    p2 = multiprocessing.Process(target=counter2, args=(N, ))
+#p1.join()
+#p2.join()
 
-    p1.start()
-    p2.start()
-
-    p1.join()
-    p2.join()
-    en = time.time()
-    print("time taken = ", en-st)
+st = time.time()
+en = time.time()
+print("time taken = ", en-st)
 
 #GITHUB for NERDZ multi programs
 #https://github.com/Suji04/NormalizedNerd/blob/master/Python%20Tutorials/Multiprocessing/multi.py
