@@ -18,5 +18,6 @@ def fibwritefile(fibarray):
             file.write(str(fibarray[:X]))
             file.close()
 
-fibarray=fibArray(7)
-fibwritefile(fibarray)
+#use enumerate() for key value pair
+#fibarray=fibArray(10000)
+#fibwritefile(fibarray)

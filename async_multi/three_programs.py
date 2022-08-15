@@ -7,22 +7,19 @@
 #file pushed to folder
 #IMPORT ALL MODULES INTO PROGRAMS WHEN FINISHED TO REFACTOR
 
-import multiprocessing
-import  time
-import os
+from ast import Num
+import multiprocessing, time, os
+from fibarry import fibArray, fibwritefile
 
-def fibGenerator(num):
+def fibGenerator():
         path="C:\\Users\\HansPeterJonasHogh-J\\dev\\docs\\pyhtonexercise\\async_multi"
         os.chdir(path)
         fibFolder= 'fibFolder-01'
         os.makedirs(fibFolder)
 
-for X in range(num):
-    # fib calculation on itreable
-    #Y = result
-    open(f"{X}.txt", "a")
-    #push file to folder
-    print("1000 fib files done!")
+fibarray=fibArray(N)
+fibwritefile(fibarray)
+
 
 def counter2(num):
     cnt = 0
@@ -31,7 +28,7 @@ def counter2(num):
     print("counter2 done!")
 
 if __name__ == "__main__":
-    N = 1000
+    N = 10000
 
     # singleprocessing
     st = time.time()
