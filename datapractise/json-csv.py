@@ -12,3 +12,5 @@ with open ("name)of_file.csv", "w") as f:
     for name in names:
         writer.writerow(name)
 #https://www.youtube.com/watch?v=YLCSVv46ERo
+#EVEN BETTER
+#https://www.youtube.com/watch?v=LBB8i4s_jzw8
