@@ -6,8 +6,6 @@
 #result is saved as file name
 #file pushed to folder
 #IMPORT ALL MODULES INTO PROGRAMS WHEN FINISHED TO REFACTOR
-
-from ast import Num
 import multiprocessing, time, os
 from fibarry import fibArray, fibwritefile
 
@@ -17,18 +15,28 @@ def fibGenerator():
         fibFolder= 'fibFolder-01'
         os.makedirs(fibFolder)
 
-fibarray=fibArray(N)
-fibwritefile(fibarray)
+def fibArray():
+    fibarray=[1,] 
+    num1 = 0
+    num2 = 1
+    find = 1
+    fibnum=0
+    while find < N:
+            fibnum = (num1+num2)
+            num1 = num2
+            num2 = fibnum
+            find = (find+1)
+            fibarray.append(int(fibnum))
+    return(fibarray)
 
+def fibwritefile(fibarray):
+    for X in range(1, len(fibarray) +1):
+        with open(f"fib-number-{X}.txt", "w") as file:
+            file.write(str(fibarray[:X]))
+            file.close()
 
-def counter2(num):
-    cnt = 0
-    for _ in range(0, num, 2):
-        cnt += 1
-    print("counter2 done!")
-
-if __name__ == "__main__":
-    N = 10000
+if __name__== "__main__":
+    N = 7
 
     # singleprocessing
     st = time.time()
@@ -39,14 +47,14 @@ if __name__ == "__main__":
 
     # multiprocessing
     st = time.time()
-    p1 = multiprocessing.Process(target=fibGenerator, args=(N, ))
-    p2 = multiprocessing.Process(target=counter2, args=(N, ))
+    p1 = multiprocessing.Process(target=fibArray, args=(N, ))
+    #p2 = multiprocessing.Process(target=counter2, args=(N, ))
 
     p1.start()
-    p2.start()
+    #p2.start()
 
     p1.join()
-    p2.join()
+    #p2.join()
     en = time.time()
     print("time taken = ", en-st)
 
