@@ -1,10 +1,10 @@
-def fibArray(N):
+def fibArray(i):
     fibarray=[1,] 
     num1 = 0
     num2 = 1
     find = 1
     fibnum=0
-    while find < N:
+    while find < i:
             fibnum = (num1+num2)
             num1 = num2
             num2 = fibnum
@@ -18,5 +18,6 @@ def fibwritefile(fibarray):
             file.write(str(fibarray[:X]))
             file.close()
 
-fibarray=fibArray(7)
-fibwritefile(fibarray)
+#use enumerate() for key value pair
+#fibarray=fibArray(10000)
+#fibwritefile(fibarray)

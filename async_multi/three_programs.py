@@ -1,57 +1,55 @@
-#import fibfunction
-#create a folder
-#single loop
-#each iterable creates file
-#iterable has a fib calucation
-#result is saved as file name
-#file pushed to folder
 #IMPORT ALL MODULES INTO PROGRAMS WHEN FINISHED TO REFACTOR
-
-import multiprocessing
-import  time
-import os
-
-def fibGenerator(num):
+import multiprocessing, time, os
+def create_folder():
         path="C:\\Users\\HansPeterJonasHogh-J\\dev\\docs\\pyhtonexercise\\async_multi"
         os.chdir(path)
-        fibFolder= 'fibFolder-01'
-        os.makedirs(fibFolder)
+        fib_folder= 'fibFolder-01'
+        os.makedirs(fib_folder)
 
-for X in range(num):
-    # fib calculation on itreable
-    #Y = result
-    open(f"{X}.txt", "a")
-    #push file to folder
-    print("1000 fib files done!")
+def generate_array(fib_position):
+    fibarray=[1,] 
+    num1 = 0
+    num2 = 1
+    current_index = 1
+    fibnum=0
+    while current_index < fib_position:
+            fibnum = (num1+num2)
+            num1 = num2
+            num2 = fibnum
+            current_index = (current_index+1)
+            fibarray.append(int(fibnum))
+    return(fibarray)
 
-def counter2(num):
-    cnt = 0
-    for _ in range(0, num, 2):
-        cnt += 1
-    print("counter2 done!")
+def write_file(fibarray):
+    for X in range(1, len(fibarray) +1):
+        #https://www.pythontutorial.net/python-oop/python-enumeration/#:~:text=%20Python%20Enumeration%20%201%20Introduction%20to%20the,method%2C%20you%20can%20also%20use%20a...%20More%20
+        #Use link to import enum- so fibarray.key and fibarray.value can be used instead
+        with open(f"fib-number-{X}.txt", "w") as file:
+            file.write(str(fibarray[:X]))
+            file.close()
 
-if __name__ == "__main__":
-    N = 1000
+if __name__== "__main__":
+    fib_position = 7
 
-    # singleprocessing
-    st = time.time()
-    fibGenerator(N)
-    counter2(N)
-    en = time.time()
-    print("time taken = ", en-st)
+# multiprocessing
+st = time.time()
+#integer will not parse and be iterable without comma as it will be a tuple
+#parse through integer
+#p1 = multiprocessing.Process(target=fibGenerator)
+p2 = multiprocessing.Process(target=generate_array, args=(fib_position, ))
 
-    # multiprocessing
-    st = time.time()
-    p1 = multiprocessing.Process(target=fibGenerator, args=(N, ))
-    p2 = multiprocessing.Process(target=counter2, args=(N, ))
+#p1.start()
+create_folder()
+fibarray=generate_array(fib_position)
+write_file(fibarray)
+p2.start()
 
-    p1.start()
-    p2.start()
+#p1.join()
+p2.join()
 
-    p1.join()
-    p2.join()
-    en = time.time()
-    print("time taken = ", en-st)
+st = time.time()
+en = time.time()
+print("time taken = ", en-st)
 
 #GITHUB for NERDZ multi programs
 #https://github.com/Suji04/NormalizedNerd/blob/master/Python%20Tutorials/Multiprocessing/multi.py
