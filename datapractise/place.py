@@ -2,7 +2,6 @@ import json
 import os
 import requests
 
-api_key = "cdb5c2c0542d5e5615a22f8f39194a0d"
 
 #-------------------------------OPEN FILE------------------------
 with open("locations.json", "r") as f:
@@ -19,6 +18,7 @@ user_input_place = input("Enter place: ")
 #print out lon/lat
 
 #Then
+#Default value
 #------------------------------------GET REQUEST--------------------
 
 #weather_data_of_json = requests.get(
