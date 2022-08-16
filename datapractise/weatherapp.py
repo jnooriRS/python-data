@@ -1,7 +1,7 @@
 # OPENWEATHER 44ad1f7ca09faba5a87f676c8565dcde
 import requests
 #API for Open Weather
-api_key = "b790ac9a284f6bec8f6dbd4ca520881e"
+api_key = 
 
 user_input_latitude = input("Enter latitude: ")
 user_input_longitude = input("Enter longitude: ")
