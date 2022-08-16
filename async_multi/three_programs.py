@@ -22,6 +22,8 @@ def generate_array(fib_position):
 
 def write_file(fibarray):
     for X in range(1, len(fibarray) +1):
+        #https://www.pythontutorial.net/python-oop/python-enumeration/#:~:text=%20Python%20Enumeration%20%201%20Introduction%20to%20the,method%2C%20you%20can%20also%20use%20a...%20More%20
+        #Use link to import enum- so fibarray.key and fibarray.value can be used instead
         with open(f"fib-number-{X}.txt", "w") as file:
             file.write(str(fibarray[:X]))
             file.close()
@@ -43,7 +45,7 @@ write_file(fibarray)
 p2.start()
 
 #p1.join()
-#p2.join()
+p2.join()
 
 st = time.time()
 en = time.time()
