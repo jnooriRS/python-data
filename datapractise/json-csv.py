@@ -5,7 +5,7 @@ with open ("name_of_file.json", "r") as f:
     data = json.load(f)
     names = data["names"]
 
-with open ("name)of_file.csv", "w") as f:
+with open ("name_of_file.csv", "w") as f:
     fieldnames = names[0].keys()
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writerheader()
