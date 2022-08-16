@@ -11,7 +11,7 @@ with open ("name_of_file.json", "r") as f:
     "age": row[1]
     })
 
-with open ("name)of_file.csv", "w") as f:
+with open ("name_of_file.csv", "w") as f:
     json.dump(data, f, indent=4)
 
 #VERY GOOD VIDEO

@@ -15,7 +15,7 @@ print(user_input_longitude)
 #Content type header- set to json in POSTMAN if inputting manually
 
 weather_data = requests.get(
-    f"https://api.openweathermap.org/data/2.5/weather?lat={user_input_latitude}&lon={user_input_longitude}&appid={os.getenv('api_key')}")
+    f"https://api.openweathermap.org/data/2.5/weather?lat={user_input_latitude}&lon={user_input_longitude}&appid={api_key}")
 
 data = json.loads(weather_data.text)
 print(data)
