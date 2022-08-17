@@ -1,7 +1,7 @@
 #IMPORT ALL MODULES INTO PROGRAMS WHEN FINISHED TO REFACTOR
 import multiprocessing, time, os
 def create_folder():
-        path="C:\\Users\\HansPeterJonasHogh-J\\dev\\docs\\pyhtonexercise\\async_multi"
+        path="C:\\Users\\HansPeterJonasHogh-J\\dev\\docs\\python-data\\async_multi"
         os.chdir(path)
         fib_folder= 'fibFolder-01'
         os.makedirs(fib_folder)
@@ -32,24 +32,25 @@ if __name__== "__main__":
     fib_position = 7
 
 # multiprocessing
-st = time.time()
+    st = time.time()
 #integer will not parse and be iterable without comma as it will be a tuple
 #parse through integer
 #p1 = multiprocessing.Process(target=fibGenerator)
-p2 = multiprocessing.Process(target=generate_array, args=(fib_position, ))
 
-#p1.start()
-create_folder()
-fibarray=generate_array(fib_position)
-write_file(fibarray)
-p2.start()
+    p2 = multiprocessing.Process(target=generate_array, args=(fib_position, ))
 
-#p1.join()
-p2.join()
+    #p1.start()
+    create_folder()
+    fibarray=generate_array(fib_position)
+    write_file(fibarray)
+    p2.start()
 
-st = time.time()
-en = time.time()
-print("time taken = ", en-st)
+        #p1.join()
+    p2.join()
+
+    st = time.time()
+    en = time.time()
+    print("time taken = ", en-st)
 
 #GITHUB for NERDZ multi programs
 #https://github.com/Suji04/NormalizedNerd/blob/master/Python%20Tutorials/Multiprocessing/multi.py
