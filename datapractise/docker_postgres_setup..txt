@@ -1,0 +1,21 @@
+ #Docker commands for db creation
+ docker run --name pg-admin-database -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+ #interactive mode in bash
+ wintpy docker exec -it pg-admin-database bash
+ #Check where we are
+ pwd - ls
+ #getting root acess to psql(the databse we are using)
+ psql (recieve no role root does not exist)
+ #Chaing user acess
+ psql -U postgres (giving it superuser ability to create dbs)
+ #Check user
+ \du
+ #Steps to create/ list and connect to db
+ create database ...
+ \l
+ \c ....
+ \d to check for any relations
+ #https://www.youtube.com/watch?v=aHbE3pTyG-Q   good follow through
+
+
+ 
