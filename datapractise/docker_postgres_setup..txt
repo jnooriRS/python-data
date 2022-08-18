@@ -13,7 +13,7 @@
  #Steps to create/ list and connect to db
  create database ...
  \l
- \c ....
+ \c .... conect to the database you want to access
  \d to check for any relations
  #https://www.youtube.com/watch?v=aHbE3pTyG-Q   good follow through
 
