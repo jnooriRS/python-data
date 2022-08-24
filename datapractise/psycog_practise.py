@@ -12,7 +12,7 @@ except:
 
 
 cur = connection_to_db.cursor()
-cur.execute("SELECT * from weather ")
+cur.execute(   "SELECT * from weather "   )
 rows = cur.fetchall()
 print ("\nShow me the databases:\n")
 for row in rows:
